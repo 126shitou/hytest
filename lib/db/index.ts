@@ -8,10 +8,10 @@ import * as schema from "@/lib/db/schema";
 
 // 用于 API Routes 和动态路由
 export const getDb = cache(() => {
-    const { env } = getCloudflareContext();
+    const testEnv = getCloudflareContext().env.test;
 
     const pool = new Pool({
-        connectionString: env.onlinegemini.connectionString,
+        connectionString: testEnv.connectionString,
         max: 5,
         maxUses: 1,
     });
@@ -26,12 +26,10 @@ export const getDbAsync = cache(async () => {
     const { env } = await getCloudflareContext({ async: true });
 
     const pool = new Pool({
-        connectionString: env.onlinegemini.connectionString,
+        connectionString: env.test.connectionString,
         max: 5,
         maxUses: 1,
     });
 
     return drizzle({ client: pool, schema });
 });
-
-export const db = getDb();
