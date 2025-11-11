@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --breakpoint-3xl: 120rem;
+  --breakpoint-xs: 32rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 自定义平滑上下浮动动画 */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+}
+
+/* 从左下角到右上角的对角线运动动画 */
+@keyframes diagonal-left-to-right {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(30px, -30px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes diagonal-left-to-right-2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(-30px, 30px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* 从右下角到左上角的对角线运动动画 */
+@keyframes diagonal-right-to-left {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(-30px, -30px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite 0.5s;
+}
+
+.animate-diagonal-left {
+  animation: diagonal-left-to-right 3s ease-in-out infinite 0.5s;
+}
+
+.animate-diagonal-right {
+  animation: diagonal-right-to-left 3s ease-in-out infinite 0.5s;
+}
+
+.animate-diagonal-left-2 {
+  animation: diagonal-left-to-right-2 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes dialog-show {
+  from {
+    opacity: 0;
+    transform: translate(0, 100%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes dialog-hide {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(0, 100%) scale(0.96);
+  }
+}
+
+@utility animate-dialog-show {
+  animation: dialog-show 300ms linear;
+}
+
+@utility animate-dialog-hide {
+  animation: dialog-hide 200ms linear;
+}
+
+/* 自定义滚动条样式 - 使用网站主题配色 */
+/* WebKit浏览器 (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 10, 40, 0.1);
+  /* 基于 #120A28 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #857ba1;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #857ba1;
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(18, 10, 40, 0.1);
+}
+
+/* Firefox浏览器滚动条样式 */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #857ba1 rgba(18, 10, 40, 0.1);
+  }
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}

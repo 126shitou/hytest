@@ -1,0 +1,27 @@
+{
+    "main": ".open-next/worker.js",
+    "name": "online-geminiimagegenerator",
+    "account_id": "564768a835ea69f9eea4255f953bd1f7",
+    "compatibility_date": "2025-03-25",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "assets": {
+        "directory": ".open-next/assets",
+        "binding": "ASSETS"
+    },
+    "hyperdrive": [
+        {
+            "binding": "onlinegemini", // Worker 中使用的名称
+            "id": "ba39ba7d1dc74881a607d58b163ab33b",
+            "localConnectionString": "postgresql://neondb_owner:npg_UOWZeo2wIr1n@ep-gentle-paper-ahlght57.c-3.us-east-1.aws.neon.tech/TestDb?sslmode=require&channel_binding=require"
+        }
+    ],
+    "observability": {
+        "enabled": true,
+        "logs": {
+            "head_sampling_rate": 1,
+            "invocation_logs": true
+        }
+    }
+}

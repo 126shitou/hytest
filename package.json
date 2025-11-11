@@ -1,0 +1,49 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "upload-static": "node scripts/upload-static.js",
+    "start": "next start",
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:drop": "drizzle-kit drop",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy && npm run upload-static",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.11.0",
+    "aws4fetch": "^1.0.20",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.44.7",
+    "next": "15.5.4",
+    "pg": "^8.16.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-i18next": "^16.0.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.5.6",
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/pg": "^8.15.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "critters": "^0.0.25",
+    "drizzle-kit": "^0.31.5",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "glob": "^11.0.3",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.43.0"
+  }
+}
