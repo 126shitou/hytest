@@ -7,10 +7,10 @@ import {
   serial,
   varchar,
   index,
-  uniqueIndex,
 } from "drizzle-orm/pg-core";
 import { nanoid } from "nanoid";
-import { SUBSCRIPTION_TYPE, FEED_BACK_TYPE } from "@/lib/config/constant";
+const SUBSCRIPTION_TYPE = ["free", "basic", "ultimate"] as const;
+const FEED_BACK_TYPE = ["issue", "feature", "bug", "model", "other"] as const
 
 // 定义订阅类型枚举
 export const subscriptionTypeEnum = pgEnum(
